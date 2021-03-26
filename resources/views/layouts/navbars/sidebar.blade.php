@@ -53,12 +53,19 @@
             <p>{{ __('Typography') }}</p>
         </a>
       </li>
+      <li class="nav-item{{ $activePage == 'categoria' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('categoria.index') }}">
+          <i class="material-icons">style</i>
+            <p>{{ __('categoria') }}</p>
+        </a>
+      </li>
       <li class="nav-item{{ $activePage == 'producto' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('producto.index') }}">
           <i class="material-icons">style</i>
             <p>{{ __('Producto') }}</p>
         </a>
       </li>
+   
       <li class="nav-item{{ $activePage == 'icons' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('icons') }}">
           <i class="material-icons">bubble_chart</i>
