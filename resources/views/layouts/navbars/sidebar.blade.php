@@ -59,6 +59,18 @@
             <p>{{ __('Producto') }}</p>
         </a>
       </li>
+      <li class="nav-item{{ $activePage == 'marca' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('marca.index') }}">
+          <i class="material-icons">branding_watermark</i>
+            <p>{{ __('Marcas') }}</p>
+        </a>
+      </li>
+      <li class="nav-item{{ $activePage == 'proveedor' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('proveedor.index') }}">
+          <i class="material-icons">contacts</i>
+            <p>{{ __('Proveedores') }}</p>
+        </a>
+      </li>
       <li class="nav-item{{ $activePage == 'icons' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('icons') }}">
           <i class="material-icons">bubble_chart</i>

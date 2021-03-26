@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\productoController;
 use App\Http\Controllers\categoriaController;
+use App\Http\Controllers\MarcaController;
+use App\Http\Controllers\ProveedorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,3 +71,7 @@ Route::resource('moneda','App\Http\Controllers\MonedaController');
 Route::resource('categoria', categoriaController::class)->middleware('auth');
 
 Route::resource('producto', productoController::class)->middleware('auth');
+
+Route::resource('marca',MarcaController::class)->middleware('auth');
+
+Route::resource('proveedor',ProveedorController::class)->middleware('auth');
