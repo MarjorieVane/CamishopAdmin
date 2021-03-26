@@ -9,7 +9,7 @@
           <div class="card-header card-header-tabs card-header-primary">
             <div class="nav-tabs-navigation">
               <div class="nav-tabs-wrapper">
-                <h4 class="card-title nav-tabs-title">Productos</h4>
+                <h4 class="card-title nav-tabs-title">Marcas</h4>
                 <div class="pull-right">
                   <a class="btn btn-success" href="{{ route('marca.create') }}">Nueva Marca</a>
                 </div>
