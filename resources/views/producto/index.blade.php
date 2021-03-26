@@ -18,7 +18,7 @@
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table">
+              <!-- <table class="table">
                 <tr>
                   <th>No</th>
                   <th>Nombre</th>
@@ -57,8 +57,8 @@
               </table>
               <div id="seccionPaginacion">
                 {{ $data->render("pagination::bootstrap-4") }}
-              </div>
-              <!-- datos de un array -->
+              </div> -->
+              <!-- datos de un spr -->
               <table class="table">
                 <tr>
                   <th>No</th>
@@ -66,6 +66,8 @@
                   <th>Descripción</th>
                   <th>Precio Unitario</th>
                   <th>Categoría</th>
+                  <th>Marca</th>
+                  <th>Proveedor</th>
                   <th>Imagenes</th>
                   <th>Estado</th>
                   <th>Acciones</th>
@@ -73,11 +75,13 @@
                 <tbody>
                 @foreach ($miprod as $prod)
                 <tr>
-                  <td>1</td>
+                  <td>{{ ++$contador }}</td>
                   <td>{{ $prod->Nombre }}</td>
                   <td>{{ $prod->Descripcion }}</td>
                   <td>{{ $prod->PrecioUnitario }}</td>
                   <td>{{ $prod->NombreCat }}</td>
+                  <td>{{ $prod->NombreMar }}</td>
+                  <td>{{ $prod->NombrePrv }}</td>
                   <td>
                     <a title="Imagenes" style="cursor:pointer">
                       <i class="material-icons">photo_library</i>
@@ -95,7 +99,7 @@
                       <a class="btn btn-primary" href="{{ route('producto.edit',$prod->IdProducto) }}">Editar</a>   
                       @csrf
                       @method('DELETE')      
-                      <button type="submit" class="btn btn-danger">Borrar</button>
+                      <!-- <button type="submit" class="btn btn-danger">Borrar</button> -->
                     </form>
                   </td>
                 </tr>

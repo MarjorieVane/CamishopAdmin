@@ -62,16 +62,19 @@
                   <div class="form-group">
                     <strong>Marca:</strong>
                     <select class="form-select form-select-sm" style="width: 130px" name="IdMarcas" required>
-                      <option value="1" selected>marca1</option>
-                      <option value="2">Cosas prronas s.a.</option>
+                      @foreach ($marcas as $key => $value)
+                        <option value="{{ $value->IdMarcas }}">{{ $value->Nombre }}</option>
+                      @endforeach
                     </select>
                   </div>
                 </div>
                 <div class="col-xs-2 col-sm-2 col-md-2">
                   <div class="form-group">
-                    <strong>Empleado:</strong>
-                    <select class="form-select form-select-sm" style="width: 130px" name="IdEmpleado" required>
-                      <option value="1" selected>TEMPORAL</option>
+                    <strong>Proveedor:</strong>
+                    <select class="form-select form-select-sm" style="width: 130px" name="IdProveedor" required>
+                      @foreach ($proveedores as $key => $value)
+                        <option value="{{ $value->IdProveedor }}">{{ $value->Nombre }}</option>
+                      @endforeach
                     </select>
                   </div>
                 </div>
@@ -84,13 +87,21 @@
                     </select>
                   </div>
                 </div>
+                <div class="col-xs-2 col-sm-2 col-md-2">
+                  <div class="form-group">
+                    <strong>Empleado:</strong>
+                    <select class="form-select form-select-sm" style="width: 130px" name="IdEmpleado" required>
+                      <option value="1" selected>TEMPORAL</option>
+                    </select>
+                  </div>
+                </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                   <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
               </div>
             </form>
             <!-- datos de un array -->
-            <table>
+            <!-- <table>
               <tr>
                 <th>juegos</th>
                 <th>consola</th>
@@ -101,9 +112,9 @@
                     <td><?= $consolas[$i]?></td>
                 </tr>
               <?php endfor ?>
-            </table>
+            </table> -->
             <!-- datos de una tabla -->
-            <table>
+            <!-- <table>
               <tr>
                 <th>no</th>
                 <th>id</th>
@@ -116,7 +127,7 @@
                   <td>{{ $value->Nombre }}</td>
                 </tr>
               @endforeach
-            </table>
+            </table> -->
           </div>
         </div>
       </div>

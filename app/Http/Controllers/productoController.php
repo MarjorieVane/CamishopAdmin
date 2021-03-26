@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\producto;
 use App\Models\categoria;
+use App\Models\marca;
+use App\Models\proveedor;
 use Illuminate\Http\Request;
 use DB;
 
@@ -20,6 +22,7 @@ class productoController extends Controller
         $data1 = DB::select('CALL spr_sel_index_productos(1)');
         return view('producto.index', compact('data'))
                                     ->with('i', (request()->input('page', 1) - 1) * 10)
+                                    ->with('contador', 0)
                                     ->with('miprod', $data1);
     }
 
@@ -33,7 +36,9 @@ class productoController extends Controller
         $data1['games'] = ['AC', 'Zelda', 'Apex'];
         $data1['consolas'] = ['suish', 'xbox', 'ps4'];
         $categorias = categoria::where('Estado', '=', 1)->get();
-        return view('producto.create', $data1, compact('categorias'));
+        $marcas = marca::where('Estado', '=', 1)->get();
+        $proveedores = proveedor::where('Estado', '=', 1)->get();
+        return view('producto.create', $data1, compact('categorias', 'marcas', 'proveedores'));
     }
 
     /**
@@ -52,7 +57,8 @@ class productoController extends Controller
             'Estado' => 'required',
             'IdCategoria' => 'required',
             'IdMarcas' => 'required',
-            'IdEmpleado' => 'required'
+            'IdEmpleado' => 'required',
+            'IdProveedor' => 'required'
         ]);
     
         producto::create($request->all());
@@ -82,7 +88,9 @@ class productoController extends Controller
         $data1['games'] = ['AC', 'Zelda', 'Apex'];
         $data1['consolas'] = ['suish', 'xbox', 'ps4'];
         $categorias = categoria::where('Estado', '=', 1)->get();
-        return view('producto.edit', $data1, compact('producto', 'categorias'));
+        $marcas = marca::where('Estado', '=', 1)->get();
+        $proveedores = proveedor::where('Estado', '=', 1)->get();
+        return view('producto.edit', $data1, compact('producto', 'categorias', 'marcas', 'proveedores'));
     }
 
     /**
@@ -102,7 +110,8 @@ class productoController extends Controller
             'Estado' => 'required',
             'IdCategoria' => 'required',
             'IdMarcas' => 'required',
-            'IdEmpleado' => 'required'
+            'IdEmpleado' => 'required',
+            'IdProveedor' => 'required'
         ]);
     
         $producto->update($request->all());
