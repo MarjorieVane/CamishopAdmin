@@ -20,7 +20,7 @@
             <div class="table-responsive">
               <table class="table">
               <tr>
-                <th>Id categoria</th>
+                <th>No.</th>
                 <th>Nombre</th>
                 <th>Estado</th>
                 <th width="280px">Acciones</th>
@@ -47,6 +47,9 @@
               </tr>
               @endforeach
               </table>
+              <div id="seccionPaginacion">
+                {{ $data->render("pagination::bootstrap-4") }}
+              </div>
             </div>
           </div>
         </div>
