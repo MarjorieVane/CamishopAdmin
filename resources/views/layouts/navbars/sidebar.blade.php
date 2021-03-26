@@ -55,7 +55,7 @@
       </li>
       <li class="nav-item{{ $activePage == 'categoria' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('categoria.index') }}">
-          <i class="material-icons">style</i>
+          <i class="material-icons">list</i>
             <p>{{ __('categoria') }}</p>
         </a>
       </li>
