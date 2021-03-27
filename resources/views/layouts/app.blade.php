@@ -25,6 +25,7 @@
                 @csrf
             </form>
             @include('layouts.page_templates.auth')
+            @include('sweetalert::alert')
         @endauth
         @guest()
             @include('layouts.page_templates.guest')

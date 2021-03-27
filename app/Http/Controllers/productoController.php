@@ -7,7 +7,9 @@ use App\Models\categoria;
 use App\Models\marca;
 use App\Models\proveedor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use DB;
+Use Alert;
 
 class productoController extends Controller
 {
@@ -49,8 +51,8 @@ class productoController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'Nombre' => 'required',
+        $validator = Validator::make($request->all(), [
+            'Nombre' => 'required|min:3',
             'Descripcion' => 'required',
             'PrecioUnitario' => 'required',
             'Genero' => 'required',
@@ -60,10 +62,14 @@ class productoController extends Controller
             'IdEmpleado' => 'required',
             'IdProveedor' => 'required'
         ]);
+
+        if ($validator->fails()) {
+            return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
+        }
     
         producto::create($request->all());
-     
-        return redirect()->route('producto.index')->with('success','PRODUCTO CREADO!');
+        // Alert::toast('PRODUCTO CREADO', 'success');
+        return redirect()->route('producto.index')->with('toast_success','Producto Creado');
     }
 
     /**
@@ -102,8 +108,8 @@ class productoController extends Controller
      */
     public function update(Request $request, producto $producto)
     {
-        $request->validate([
-            'Nombre' => 'required',
+        $validator = Validator::make($request->all(), [
+            'Nombre' => 'required|min:3',
             'Descripcion' => 'required',
             'PrecioUnitario' => 'required',
             'Genero' => 'required',
@@ -113,10 +119,13 @@ class productoController extends Controller
             'IdEmpleado' => 'required',
             'IdProveedor' => 'required'
         ]);
+
+        if ($validator->fails()) {
+            return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
+        }
     
         $producto->update($request->all());
-    
-        return redirect()->route('producto.index')->with('success','PRODUCTO ACTUALIZADO !');
+        return redirect()->route('producto.index')->with('toast_success','Producto Actualizado');
     }
 
     /**

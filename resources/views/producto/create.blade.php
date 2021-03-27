@@ -134,6 +134,7 @@
     </div>
   </div>
 </div>
+@include('sweetalert::alert')
 <script>
   function redondear(element) {
     element.value = parseFloat(element.value).toFixed(2);
