@@ -5,7 +5,7 @@ use App\Http\Controllers\productoController;
 use App\Http\Controllers\categoriaController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\ProveedorController;
-
+use App\Http\Controllers\empleadoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,6 +67,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 Route::resource('moneda','App\Http\Controllers\MonedaController');
+
+Route::resource('empleado', empleadoController::class)->middleware('auth');
 
 Route::resource('categoria', categoriaController::class)->middleware('auth');
 
