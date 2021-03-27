@@ -14,9 +14,9 @@ class MonedaController extends Controller
     public function index()
     {
 
-        $monedas = Moneda::paginate(5);
+        $data = Moneda::paginate(10);
         //dd($monedas);
-        return view('Moneda.index',compact('monedas'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('Moneda.index',compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
 
 
         
@@ -40,7 +40,15 @@ class MonedaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'Descripcion' => 'required',
+            'Simbolo' => 'required',
+            'Estado' => 'required',
+        ]);
+    
+        Moneda::create($request->all());
+     
+        return redirect()->route('moneda.index')->with('success','Moneda Creada');
     }
 
     /**
@@ -76,11 +84,13 @@ class MonedaController extends Controller
     {
         $request->validate([
             'Descripcion' => 'required',
+            'Simbolo'     => 'required',
+            'Estado'      => 'required',  
         ]);
     
         $moneda->update($request->all());
     
-        return redirect()->route('moneda.index')->with('success','PRODUCTO ACTUALIZADO !');
+        return redirect()->route('moneda.index')->with('success','Moneda actualizada !');
     }
 
     /**
@@ -89,8 +99,9 @@ class MonedaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Moneda $moneda)
     {
-        //
+        $moneda->delete();
+        return redirect()->route('moneda.index')->with('success','Moneda eliminada!');
     }
 }

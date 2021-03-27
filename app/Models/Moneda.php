@@ -10,6 +10,6 @@ class Moneda extends Model
     use HasFactory;
     public $table = 'moneda';
     protected $primaryKey = 'IdMoneda';
-    protected $fillable = ['Descripcion','Estado'];
+    protected $fillable = ['Descripcion','Simbolo','Estado'];
     public $timestamps = false;
 }

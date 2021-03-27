@@ -65,7 +65,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });
 
-
+ 
 Route::resource('moneda','App\Http\Controllers\MonedaController');
 
 Route::resource('empleado', empleadoController::class)->middleware('auth');

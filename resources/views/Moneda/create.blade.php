@@ -1,48 +1,52 @@
-@extends('producto.layout')
-  
+@extends('layouts.app', ['activePage' => 'moneda', 'titlePage' => __('moneda')])
 @section('content')
-<div class="row">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <h2>Add New Product</h2>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-tabs card-header-success">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <h4 class="card-title nav-tabs-title">Crear Monedas</h4>
+                <div class="pull-right">
+                  <a class="btn btn-success" href="{{ route('moneda.index') }}">Regresar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+          <form action="{{ route('moneda.store') }}" method="POST">
+              @csrf
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                  <div class="form-group">
+                  <strong>Nombre:</strong>
+                  <input type="text" name="Descripcion" class="form-control" placeholder="Ingrese un nombre">
+                  <strong>Símbolo:</strong>
+                  <input type="text" name="Simbolo" class="form-control" placeholder="QTZ">
+                  <strong>Estado:</strong>
+                  <select class="form-control" style="height:50px" name="Estado" >
+                    <option value="1">Activo</option>
+                    <option value="0">Inactivo</option>
+                  </select>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                  <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+              </div>
+            </form>
+
+          </div>
         </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('moneda.index') }}"> Back</a>
-        </div>
+      </div>
     </div>
+  </div>
 </div>
-   
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-   
-<form action="{{ route('moneda.store') }}" method="POST">
-    @csrf
-  
-     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Title:</strong>
-                <input type="text" name="title" class="form-control" placeholder="Enter Title">
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Description:</strong>
-                <textarea class="form-control" style="height:150px" name="description" placeholder="Enter Description"></textarea>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    </div>
-   
-</form>
+<script>
+  function redondear(element) {
+    element.value = parseFloat(element.value).toFixed(2);
+  }
+</script>
 @endsection
