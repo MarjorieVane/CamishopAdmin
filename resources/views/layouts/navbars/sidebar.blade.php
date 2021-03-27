@@ -53,9 +53,15 @@
             <p>{{ __('Typography') }}</p>
         </a>
       </li> -->
+      <li class="nav-item{{ $activePage == 'moneda' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('moneda.index') }}">
+          <i class="material-icons">attach_money</i>
+            <p>{{ __('moneda') }}</p>
+        </a>
+      </li>
       <li class="nav-item{{ $activePage == 'categoria' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('categoria.index') }}">
-          <i class="material-icons">style</i>
+          <i class="material-icons">list</i>
             <p>{{ __('categoria') }}</p>
         </a>
       </li>
