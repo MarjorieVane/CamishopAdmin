@@ -14,9 +14,9 @@ class categoriaController extends Controller
      */
     public function index()
     {
-        $data = categoria::latest()->paginate(5);
+        $data = categoria::latest()->paginate(10);
     
-        return view('categoria.index',compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('categoria.index',compact('data'))->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     /**

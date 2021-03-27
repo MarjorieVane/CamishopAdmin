@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Moneda;
-class MonedaController extends Controller
+use App\Models\proveedor;
+class ProveedorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,13 +13,9 @@ class MonedaController extends Controller
      */
     public function index()
     {
-
-        $data = Moneda::paginate(10);
-        //dd($monedas);
-        return view('Moneda.index',compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
-
-
-        
+        //
+        $proveedor = proveedor::latest()->paginate(10);
+        return view('proveedor.index',compact('proveedor'))->with('i',(request()->input('page',1) - 1) * 10);
     }
 
     /**
@@ -29,7 +25,8 @@ class MonedaController extends Controller
      */
     public function create()
     {
-        return view('moneda.create');
+        //
+        return view('proveedor.create');
     }
 
     /**
@@ -40,15 +37,19 @@ class MonedaController extends Controller
      */
     public function store(Request $request)
     {
+        //
+
         $request->validate([
-            'Descripcion' => 'required',
-            'Simbolo' => 'required',
-            'Estado' => 'required',
+            'Nombre' => 'required',
+            'Contacto' => 'required',
+            'TelefonoContacto' => 'required',
+
         ]);
-    
-        Moneda::create($request->all());
-     
-        return redirect()->route('moneda.index')->with('success','Moneda Creada');
+
+        proveedor::create($request->all());
+
+        return redirect()->route('proveedor.index')->with('success','Proveedor creado');
+
     }
 
     /**
@@ -57,7 +58,7 @@ class MonedaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show($id)
     {
         //
     }
@@ -68,9 +69,10 @@ class MonedaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Moneda $moneda)
+    public function edit($id)
     {
-        return view('Moneda.edit',compact('moneda'));
+        //
+        return view('proveedor.edit');
     }
 
     /**
@@ -80,17 +82,9 @@ class MonedaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Moneda $moneda)
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'Descripcion' => 'required',
-            'Simbolo'     => 'required',
-            'Estado'      => 'required',  
-        ]);
-    
-        $moneda->update($request->all());
-    
-        return redirect()->route('moneda.index')->with('success','Moneda actualizada !');
+        //
     }
 
     /**
@@ -99,9 +93,8 @@ class MonedaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Moneda $moneda)
+    public function destroy($id)
     {
-        $moneda->delete();
-        return redirect()->route('moneda.index')->with('success','Moneda eliminada!');
+        //
     }
 }

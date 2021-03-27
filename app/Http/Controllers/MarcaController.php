@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Moneda;
-class MonedaController extends Controller
+use App\Models\marca;
+
+class MarcaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,13 +14,11 @@ class MonedaController extends Controller
      */
     public function index()
     {
+        //
+        $marca = marca::latest()->paginate(10);
+    
+        return view('marca.index',compact('marca'))->with('i', (request()->input('page', 1) - 1) * 10);
 
-        $data = Moneda::paginate(10);
-        //dd($monedas);
-        return view('Moneda.index',compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
-
-
-        
     }
 
     /**
@@ -29,7 +28,8 @@ class MonedaController extends Controller
      */
     public function create()
     {
-        return view('moneda.create');
+        //
+        return view('marca.create');
     }
 
     /**
@@ -40,15 +40,15 @@ class MonedaController extends Controller
      */
     public function store(Request $request)
     {
+        //
         $request->validate([
-            'Descripcion' => 'required',
-            'Simbolo' => 'required',
-            'Estado' => 'required',
+            'Nombre' => 'required',
         ]);
-    
-        Moneda::create($request->all());
-     
-        return redirect()->route('moneda.index')->with('success','Moneda Creada');
+
+        marca::create($request->all());
+
+        return redirect()->route('marca.index')->with('success','Marca creada');
+
     }
 
     /**
@@ -57,7 +57,7 @@ class MonedaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show($id)
     {
         //
     }
@@ -68,9 +68,10 @@ class MonedaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Moneda $moneda)
+    public function edit($id)
     {
-        return view('Moneda.edit',compact('moneda'));
+        //
+        return view('marca.edit',compact('marca'));
     }
 
     /**
@@ -80,17 +81,16 @@ class MonedaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Moneda $moneda)
+    public function update(Request $request, $id)
     {
+        //
         $request->validate([
-            'Descripcion' => 'required',
-            'Simbolo'     => 'required',
-            'Estado'      => 'required',  
+            'Nombre' => 'required',
         ]);
-    
-        $moneda->update($request->all());
-    
-        return redirect()->route('moneda.index')->with('success','Moneda actualizada !');
+
+        $marca->update($request->all());
+
+        return redirect()->route('marca.index')->with('success','Marca actualizada');
     }
 
     /**
@@ -99,9 +99,11 @@ class MonedaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Moneda $moneda)
+    public function destroy($id)
     {
-        $moneda->delete();
-        return redirect()->route('moneda.index')->with('success','Moneda eliminada!');
+        //
+        $marca->delete();
+        return redirect()->route('marca.index')->with('success','Marca eliminada');
+        
     }
 }

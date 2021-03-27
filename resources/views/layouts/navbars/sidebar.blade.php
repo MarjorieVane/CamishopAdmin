@@ -53,10 +53,34 @@
             <p>{{ __('Typography') }}</p>
         </a>
       </li>
+      <li class="nav-item{{ $activePage == 'moneda' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('moneda.index') }}">
+          <i class="material-icons">attach_money</i>
+            <p>{{ __('moneda') }}</p>
+        </a>
+      </li>
+      <li class="nav-item{{ $activePage == 'categoria' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('categoria.index') }}">
+          <i class="material-icons">list</i>
+            <p>{{ __('categoria') }}</p>
+        </a>
+      </li>
       <li class="nav-item{{ $activePage == 'producto' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('producto.index') }}">
           <i class="material-icons">style</i>
             <p>{{ __('Producto') }}</p>
+        </a>
+      </li>
+      <li class="nav-item{{ $activePage == 'marca' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('marca.index') }}">
+          <i class="material-icons">branding_watermark</i>
+            <p>{{ __('Marcas') }}</p>
+        </a>
+      </li>
+      <li class="nav-item{{ $activePage == 'proveedor' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('proveedor.index') }}">
+          <i class="material-icons">contacts</i>
+            <p>{{ __('Proveedores') }}</p>
         </a>
       </li>
       <li class="nav-item{{ $activePage == 'icons' ? ' active' : '' }}">
