@@ -125,6 +125,14 @@
           <p>{{ __('Upgrade to PRO') }}</p>
         </a>
       </li> -->
+      <li>
+        <a 
+          class="nav-link text-white bg-danger" 
+          href="{{ route('logout') }}" 
+          onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+          {{ __('Salir') }}
+        </a>
+      </li>
     </ul>
   </div>
 </div>
