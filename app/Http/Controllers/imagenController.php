@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\imagen;
+use App\Models\producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use DB;
+Use Alert;
 
 class imagenController extends Controller
 {
@@ -15,7 +19,11 @@ class imagenController extends Controller
     public function index()
     {
         $data = imagen::latest()->paginate(10);
-        return view('imagen.index',compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
+        $data1 = DB::select('CALL spr_sel_index_imagenes(1)');
+        return view('imagen.index',compact('data'))
+                                                ->with('i', (request()->input('page', 1) - 1) * 5)
+                                                ->with('contador', 0)
+                                                ->with('miimg', $data1);;
     }
 
     /**
@@ -25,7 +33,8 @@ class imagenController extends Controller
      */
     public function create()
     {
-        return view('imagen.create');
+        $producto = producto::where('Estado', '=', 1)->get();
+        return view('imagen.create', compact('producto'));
     }
 
     /**
@@ -36,8 +45,18 @@ class imagenController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'IdProducto' => 'required',
+            'RutaImagen' => 'required|max:1000',
+            'Estado' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
+        }
+
         imagen::create($request->all());
-        return redirect()->route('imagen.index')->with('success','Post created successfully.');
+        return redirect()->route('imagen.index')->with('toast_success','Imagen Creada');
     }
 
     /**
@@ -59,7 +78,8 @@ class imagenController extends Controller
      */
     public function edit(imagen $imagen)
     {
-        return view('imagen.edit', compact('imagen'));
+        $producto = producto::where('Estado', '=', 1)->get();
+        return view('imagen.edit', compact('imagen', 'producto'));
     }
 
     /**
@@ -71,9 +91,18 @@ class imagenController extends Controller
      */
     public function update(Request $request, imagen $imagen)
     {
+        $validator = Validator::make($request->all(), [
+            'IdProducto' => 'required',
+            'RutaImagen' => 'required',
+            'Estado' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
+        }
+
         $imagen->update($request->all());
-    
-        return redirect()->route('imagen.index')->with('success','Post updated successfully');
+        return redirect()->route('imagen.index')->with('toast_success','Imagen Actualizada');
     }
 
     /**
@@ -84,6 +113,8 @@ class imagenController extends Controller
      */
     public function destroy(imagen $imagen)
     {
-        //
+        $imagen->delete();
+    
+        return redirect()->route('imagen.index')->with('success','Imagen borrada');
     }
 }

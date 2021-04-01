@@ -68,7 +68,6 @@ class productoController extends Controller
         }
     
         producto::create($request->all());
-        // Alert::toast('PRODUCTO CREADO', 'success');
         return redirect()->route('producto.index')->with('toast_success','Producto Creado');
     }
 

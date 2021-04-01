@@ -77,6 +77,12 @@
             <p>{{ __('Producto') }}</p>
         </a>
       </li>
+      <li class="nav-item{{ $activePage == 'imagenes_prod' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('imagen.index') }}">
+          <i class="material-icons">photo_library</i>
+            <p>{{ __('Imagenes') }}</p>
+        </a>
+      </li>
       <li class="nav-item{{ $activePage == 'marca' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('marca.index') }}">
           <i class="material-icons">branding_watermark</i>
