@@ -5,6 +5,7 @@ use App\Http\Controllers\productoController;
 use App\Http\Controllers\categoriaController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\ProveedorController;
+use App\Http\Controllers\imagenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,3 +76,5 @@ Route::resource('producto', productoController::class)->middleware('auth');
 Route::resource('marca',MarcaController::class)->middleware('auth');
 
 Route::resource('proveedor',ProveedorController::class)->middleware('auth');
+
+Route::resource('imagen', imagenController::class)->middleware('auth');
