@@ -1,5 +1,6 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top text-white">
+<!-- barra de navegacion en layout 'welcome' -->
+<!-- <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top text-white">
   <div class="container">
     <div class="navbar-wrapper">
      
@@ -35,5 +36,5 @@
       </ul>
     </div>
   </div>
-</nav>
+</nav> -->
 <!-- End Navbar -->

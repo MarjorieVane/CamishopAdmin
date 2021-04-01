@@ -20,7 +20,9 @@ use App\Http\Controllers\empleadoController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	// ya no redirige al welcome layout
+    // return view('welcome');
+    return view('auth/login');
 });
 
 Auth::routes();
