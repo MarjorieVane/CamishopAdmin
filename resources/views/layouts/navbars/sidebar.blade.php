@@ -59,6 +59,12 @@
             <p>{{ __('moneda') }}</p>
         </a>
       </li>
+     <li class="nav-item{{ $activePage == 'empleado' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('empleado.index') }}">
+          <i class="material-icons">account_circle</i>
+            <p>{{ __('empleado') }}</p>
+        </a>
+      </li>
       <li class="nav-item{{ $activePage == 'categoria' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('categoria.index') }}">
           <i class="material-icons">list</i>
