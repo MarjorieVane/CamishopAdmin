@@ -7,33 +7,33 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Extra details for Live View on GitHub Pages -->
     <!-- Canonical SEO -->
-    <link rel="canonical" href="https://www.creative-tim.com/product/material-dashboard-laravel" />
+    <!-- <link rel="canonical" href="https://www.creative-tim.com/product/material-dashboard-laravel" /> -->
 
 
     <!--  Social tags      -->
-    <meta name="keywords" content="creative tim, html dashboard, laravel, html css dashboard laravel, web dashboard, bootstrap 4 dashboard laravel, bootstrap 4, css3 dashboard, bootstrap 4 admin laravel, material ui dashboard bootstrap 4 laravel, frontend, responsive bootstrap 4 dashboard, material design, material laravel bootstrap 4 dashboard">
-    <meta name="description" content="Material Dashboard Laravel is a Free Material Bootstrap Admin Preset for Laravel with a fresh, new design inspired by Google's Material Design.">
+    <!-- <meta name="keywords" content="creative tim, html dashboard, laravel, html css dashboard laravel, web dashboard, bootstrap 4 dashboard laravel, bootstrap 4, css3 dashboard, bootstrap 4 admin laravel, material ui dashboard bootstrap 4 laravel, frontend, responsive bootstrap 4 dashboard, material design, material laravel bootstrap 4 dashboard">
+    <meta name="description" content="Material Dashboard Laravel is a Free Material Bootstrap Admin Preset for Laravel with a fresh, new design inspired by Google's Material Design."> -->
 
 
     <!-- Schema.org markup for Google+ -->
-    <meta itemprop="name" content="Material Dashboard Laravel by Creative Tim">
+    <!-- <meta itemprop="name" content="Material Dashboard Laravel by Creative Tim">
     <meta itemprop="description" content="Material Dashboard Laravel is a Free Material Bootstrap Admin Preset for Laravel with a fresh, new design inspired by Google's Material Design.">
 
-    <meta itemprop="image" content="https://s3.amazonaws.com/creativetim_bucket/products/154/opt_md_laravel_thumbnail.jpg">
+    <meta itemprop="image" content="https://s3.amazonaws.com/creativetim_bucket/products/154/opt_md_laravel_thumbnail.jpg"> -->
 
 
     <!-- Twitter Card data -->
-    <meta name="twitter:card" content="product">
+    <!-- <meta name="twitter:card" content="product">
     <meta name="twitter:site" content="@creativetim">
     <meta name="twitter:title" content="Material Dashboard Laravel by Creative Tim">
 
     <meta name="twitter:description" content="Material Dashboard Laravel is a Free Material Bootstrap Admin Preset for Laravel with a fresh, new design inspired by Google's Material Design.">
     <meta name="twitter:creator" content="@creativetim">
-    <meta name="twitter:image" content="https://s3.amazonaws.com/creativetim_bucket/products/154/opt_md_laravel_thumbnail.jpg">
+    <meta name="twitter:image" content="https://s3.amazonaws.com/creativetim_bucket/products/154/opt_md_laravel_thumbnail.jpg"> -->
 
 
     <!-- Open Graph data -->
-    <meta property="fb:app_id" content="655968634437471">
+    <!-- <meta property="fb:app_id" content="655968634437471">
     <meta property="og:title" content="Material Dashboard Laravel by Creative Tim" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://material-dashboard-laravel.creative-tim.com/" />
@@ -44,37 +44,34 @@
     <title>{{ __('Material Dashboard Laravel - Free Frontend Preset for Laravel') }}</title>
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('material') }}/img/apple-icon.png">
     <link rel="icon" type="image/png" href="{{ asset('material') }}/img/favicon.png">
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' /> -->
     <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"> -->
     <!-- CSS Files -->
-    <link href="{{ asset('material') }}/css/material-dashboard.css?v=2.1.3" rel="stylesheet" />
+    <!-- <link href="{{ asset('material') }}/css/material-dashboard.css?v=2.1.3" rel="stylesheet" /> -->
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="{{ asset('material') }}/demo/demo.css" rel="stylesheet" />
+    <!-- <link href="{{ asset('material') }}/demo/demo.css" rel="stylesheet" /> -->
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-NKDMSK6');</script>
+    <script>
+    // (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    //   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    //   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    //   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    //   })(window,document,'script','dataLayer','GTM-NKDMSK6');
+      </script>
       <!-- End Google Tag Manager -->
 
     </head>
-  <body class="clickup-chrome-ext_installed">
+  <!-- <body class="clickup-chrome-ext_installed"> -->
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
     <!-- End Google Tag Manager (noscript) -->
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-              <input type="hidden" name="_token" value="NKN81BvuQSzEbJlULUVrTDRewUlcAIJhPbOwli18">            </form>
-          <div class="wrapper ">
+                  <!-- <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              <input type="hidden" name="_token" value="NKN81BvuQSzEbJlULUVrTDRewUlcAIJhPbOwli18">            </form> -->
+          <!-- <div class="wrapper ">
             <div class="sidebar" data-color="orange" data-background-color="white" data-image="{{ asset('material') }}/img/sidebar-1.jpg">
-              <!--
-                  Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-            
-                  Tip 2: you can also add an image using data-image tag
-              -->
               <div class="logo">
                 <a href="https://creative-tim.com/" class="simple-text logo-normal">
                   {{ __('Creative Tim') }}
@@ -156,10 +153,10 @@
                   </li>
                 </ul>
               </div>
-            </div>
-<div class="main-panel">
+            </div> -->
+<!-- <div class="main-panel"> -->
   <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+<!-- <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
 <div class="container-fluid">
   <div class="navbar-wrapper">
     <a class="navbar-brand" href="#">User Management</a>
@@ -170,8 +167,8 @@
   <span class="navbar-toggler-icon icon-bar"></span>
   <span class="navbar-toggler-icon icon-bar"></span>
   <span class="navbar-toggler-icon icon-bar"></span>
-  </button>
-  <div class="collapse navbar-collapse justify-content-end">
+  </button> -->
+  <!-- <div class="collapse navbar-collapse justify-content-end">
     <form class="navbar-form">
       <span class="bmd-form-group"><div class="input-group no-border">
       <input type="text" value="" class="form-control" placeholder="Search...">
@@ -221,11 +218,11 @@
         </div>
       </li>
     </ul>
-  </div>
+  </div> -->
 </div>
 </nav>
 
-    <div class="content">
+    <!-- <div class="content">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
@@ -286,8 +283,8 @@
       </div>
     </div>
   </div>
-</div>
-  <footer class="footer">
+</div> -->
+  <!-- <footer class="footer">
 <div class="container-fluid">
   <nav class="float-left">
     <ul>
@@ -369,12 +366,12 @@
             <li class="button-container">
               <a href="https://www.creative-tim.com/product/material-dashboard-laravel" target="_blank" class="btn btn-primary btn-block">Free Download</a>
             </li>
-            <!-- <li class="header-title">Want more components?</li>
+            <li class="header-title">Want more components?</li>
                 <li class="button-container">
                     <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-warning btn-block">
                       Get the pro version
                     </a>
-                </li> -->
+                </li>
             <li class="button-container">
               <a href="https://material-dashboard-laravel.creative-tim.com/docs/getting-started/laravel-setup.html" target="_blank" class="btn btn-default btn-block">
                 View Documentation
@@ -397,80 +394,80 @@
             </li>
           </ul>
         </div>
-      </div>
+      </div> -->
         <!--   Core JS Files   -->
-        <script src="{{ asset('material') }}/js/core/jquery.min.js"></script>
+        <!-- <script src="{{ asset('material') }}/js/core/jquery.min.js"></script>
         <script src="{{ asset('material') }}/js/core/popper.min.js"></script>
         <script src="{{ asset('material') }}/js/core/bootstrap-material-design.min.js"></script>
-        <script src="{{ asset('material') }}/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+        <script src="{{ asset('material') }}/js/plugins/perfect-scrollbar.jquery.min.js"></script> -->
         <!-- Plugin for the momentJs  -->
-        <script src="{{ asset('material') }}/js/plugins/moment.min.js"></script>
+        <!-- <script src="{{ asset('material') }}/js/plugins/moment.min.js"></script> -->
         <!--  Plugin for Sweet Alert -->
-        <script src="{{ asset('material') }}/js/plugins/sweetalert2.js"></script>
+        <!-- <script src="{{ asset('material') }}/js/plugins/sweetalert2.js"></script> -->
         <!-- Forms Validations Plugin -->
-        <script src="{{ asset('material') }}/js/plugins/jquery.validate.min.js"></script>
+        <!-- <script src="{{ asset('material') }}/js/plugins/jquery.validate.min.js"></script> -->
         <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
-        <script src="{{ asset('material') }}/js/plugins/jquery.bootstrap-wizard.js"></script>
+        <!-- <script src="{{ asset('material') }}/js/plugins/jquery.bootstrap-wizard.js"></script> -->
         <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-        <script src="{{ asset('material') }}/js/plugins/bootstrap-selectpicker.js"></script>
+        <!-- <script src="{{ asset('material') }}/js/plugins/bootstrap-selectpicker.js"></script> -->
         <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
-        <script src="{{ asset('material') }}/js/plugins/bootstrap-datetimepicker.min.js"></script>
+        <!-- <script src="{{ asset('material') }}/js/plugins/bootstrap-datetimepicker.min.js"></script> -->
         <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
-        <script src="{{ asset('material') }}/js/plugins/jquery.dataTables.min.js"></script>
+        <!-- <script src="{{ asset('material') }}/js/plugins/jquery.dataTables.min.js"></script> -->
         <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
-        <script src="{{ asset('material') }}/js/plugins/bootstrap-tagsinput.js"></script>
+        <!-- <script src="{{ asset('material') }}/js/plugins/bootstrap-tagsinput.js"></script> -->
         <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-        <script src="{{ asset('material') }}/js/plugins/jasny-bootstrap.min.js"></script>
+        <!-- <script src="{{ asset('material') }}/js/plugins/jasny-bootstrap.min.js"></script> -->
         <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
-        <script src="{{ asset('material') }}/js/plugins/fullcalendar.min.js"></script>
+        <!-- <script src="{{ asset('material') }}/js/plugins/fullcalendar.min.js"></script> -->
         <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
-        <script src="{{ asset('material') }}/js/plugins/jquery-jvectormap.js"></script>
+        <!-- <script src="{{ asset('material') }}/js/plugins/jquery-jvectormap.js"></script> -->
         <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-        <script src="{{ asset('material') }}/js/plugins/nouislider.min.js"></script>
+        <!-- <script src="{{ asset('material') }}/js/plugins/nouislider.min.js"></script> -->
         <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script> -->
         <!-- Library for adding dinamically elements -->
-        <script src="{{ asset('material') }}/js/plugins/arrive.min.js"></script>
+        <!-- <script src="{{ asset('material') }}/js/plugins/arrive.min.js"></script> -->
         <!--  Google Maps Plugin    -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE'"></script>
+        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE'"></script> -->
         <!-- Chartist JS -->
-        <script src="{{ asset('material') }}/js/plugins/chartist.min.js"></script>
+        <!-- <script src="{{ asset('material') }}/js/plugins/chartist.min.js"></script> -->
         <!--  Notifications Plugin    -->
-        <script src="{{ asset('material') }}/js/plugins/bootstrap-notify.js"></script>
+        <!-- <script src="{{ asset('material') }}/js/plugins/bootstrap-notify.js"></script> -->
         <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-        <script src="{{ asset('material') }}/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
+        <!-- <script src="{{ asset('material') }}/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script> -->
         <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-        <script src="{{ asset('material') }}/demo/demo.js"></script>
-        <script src="{{ asset('material') }}/js/settings.js"></script>
+        <!-- <script src="{{ asset('material') }}/demo/demo.js"></script>
+        <script src="{{ asset('material') }}/js/settings.js"></script> -->
         <script>
           // Facebook Pixel Code Don't Delete
-            ! function(f, b, e, v, n, t, s) {
-              if (f.fbq) return;
-              n = f.fbq = function() {
-                n.callMethod ?
-                  n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-              };
-              if (!f._fbq) f._fbq = n;
-              n.push = n;
-              n.loaded = !0;
-              n.version = '2.0';
-              n.queue = [];
-              t = b.createElement(e);
-              t.async = !0;
-              t.src = v;
-              s = b.getElementsByTagName(e)[0];
-              s.parentNode.insertBefore(t, s)
-            }(window,
-              document, 'script', '//connect.facebook.net/en_US/fbevents.js');
-            try {
-              fbq('init', '111649226022273');
-              fbq('track', "PageView");
-            } catch (err) {
-              console.log('Facebook Track Error:', err);
-            }
+            //  function(f, b, e, v, n, t, s) {
+            //   if (f.fbq) return;
+            //   n = f.fbq = function() {
+            //     n.callMethod ?
+            //       n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            //   };
+            //   if (!f._fbq) f._fbq = n;
+            //   n.push = n;
+            //   n.loaded = !0;
+            //   n.version = '2.0';
+            //   n.queue = [];
+            //   t = b.createElement(e);
+            //   t.async = !0;
+            //   t.src = v;
+            //   s = b.getElementsByTagName(e)[0];
+            //   s.parentNode.insertBefore(t, s)
+            // }(window,
+            //   document, 'script', '//connect.facebook.net/en_US/fbevents.js');
+            // try {
+            //   fbq('init', '111649226022273');
+            //   fbq('track', "PageView");
+            // } catch (err) {
+            //   console.log('Facebook Track Error:', err);
+            // }
         </script>
         <noscript>
-          <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=111649226022273&ev=PageView&noscript=1" />
+          <!-- <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=111649226022273&ev=PageView&noscript=1" /> -->
         </noscript>
         @stack('js')
     </body>

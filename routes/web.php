@@ -5,6 +5,8 @@ use App\Http\Controllers\productoController;
 use App\Http\Controllers\categoriaController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\ProveedorController;
+use App\Http\Controllers\imagenController;
+
 use App\Http\Controllers\empleadoController;
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +20,9 @@ use App\Http\Controllers\empleadoController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	// ya no redirige al welcome layout
+    // return view('welcome');
+    return view('auth/login');
 });
 
 Auth::routes();
@@ -77,3 +81,5 @@ Route::resource('producto', productoController::class)->middleware('auth');
 Route::resource('marca',MarcaController::class)->middleware('auth');
 
 Route::resource('proveedor',ProveedorController::class)->middleware('auth');
+
+Route::resource('imagen', imagenController::class)->middleware('auth');

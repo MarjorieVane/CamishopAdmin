@@ -77,6 +77,12 @@
             <p>{{ __('Producto') }}</p>
         </a>
       </li>
+      <li class="nav-item{{ $activePage == 'imagenes_prod' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('imagen.index') }}">
+          <i class="material-icons">photo_library</i>
+            <p>{{ __('Imagenes') }}</p>
+        </a>
+      </li>
       <li class="nav-item{{ $activePage == 'marca' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('marca.index') }}">
           <i class="material-icons">branding_watermark</i>
@@ -119,6 +125,14 @@
           <p>{{ __('Upgrade to PRO') }}</p>
         </a>
       </li> -->
+      <li>
+        <a 
+          class="nav-link text-white bg-danger" 
+          href="{{ route('logout') }}" 
+          onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+          {{ __('Salir') }}
+        </a>
+      </li>
     </ul>
   </div>
 </div>
