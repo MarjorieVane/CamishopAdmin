@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\proveedor;
+use Illuminate\Support\Facades\Validator;
+use DB;
+Use Alert;
+
 class ProveedorController extends Controller
 {
     /**
@@ -43,7 +47,7 @@ class ProveedorController extends Controller
             'Nombre' => 'required',
             'Contacto' => 'required',
             'TelefonoContacto' => 'required',
-
+            'Estado' => 'required',
         ]);
 
         proveedor::create($request->all());
@@ -69,10 +73,10 @@ class ProveedorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(proveedor $proveedor)
     {
         //
-        return view('proveedor.edit');
+        return view('proveedor.edit',compact('proveedor'));
     }
 
     /**
@@ -82,9 +86,22 @@ class ProveedorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, proveedor $proveedor)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'Nombre' => 'required',
+            'Contacto' => 'required',
+            'TelefonoContacto' => 'required',
+            'Estado' => 'required',
+
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
+        }
+    
+        $proveedor->update($request->all());
+        return redirect()->route('proveedor.index')->with('toast_success','Proveedor Actualizado');
     }
 
     /**

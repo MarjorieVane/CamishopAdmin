@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\marca;
-
+use Illuminate\Support\Facades\Validator;
+use DB;
+Use Alert;
 class MarcaController extends Controller
 {
     /**
@@ -43,6 +45,7 @@ class MarcaController extends Controller
         //
         $request->validate([
             'Nombre' => 'required',
+            'Estado' => 'required',
         ]);
 
         marca::create($request->all());
@@ -68,7 +71,7 @@ class MarcaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(marca $marca)
     {
         //
         return view('marca.edit',compact('marca'));
@@ -81,16 +84,19 @@ class MarcaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, marca $marca)
     {
-        //
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'Nombre' => 'required',
+            'Estado'=> 'required',
         ]);
 
+        if ($validator->fails()) {
+            return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
+        }
+    
         $marca->update($request->all());
-
-        return redirect()->route('marca.index')->with('success','Marca actualizada');
+        return redirect()->route('marca.index')->with('toast_success','Marca Actualizada');
     }
 
     /**
@@ -99,11 +105,11 @@ class MarcaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(marca $marca)
     {
         //
         $marca->delete();
-        return redirect()->route('marca.index')->with('success','Marca eliminada');
+        return redirect()->route('marca.index')->with('success','Marca borrada');
         
     }
 }

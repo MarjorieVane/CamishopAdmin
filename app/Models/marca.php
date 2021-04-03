@@ -10,5 +10,5 @@ class marca extends Model
     use HasFactory;
     public $table = 'marcas';
     protected $primaryKey = 'IdMarcas';
-    protected $fillable = ['Nombre'];
+    protected $fillable = ['Nombre','Estado'];
 }

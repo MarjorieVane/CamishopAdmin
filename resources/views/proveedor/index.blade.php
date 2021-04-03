@@ -24,7 +24,8 @@
                   <th>Nombre</th>
                   <th>Contacto</th>
                   <th>Telefono</th>
-                  <th> </th>
+                  <th>Estado</th>
+                  <th>Acciones</th>
                 </tr>
                 @foreach ($proveedor as $key => $value)
                 <tr>
@@ -33,8 +34,15 @@
                     <td>{{ $value->Nombre }}</td>
                     <td>{{ $value->Contacto }}</td>
                     <td>{{ $value->TelefonoContacto }}</td>
+                    @if ($value->Estado == 1)
+                      <td><i class="material-icons text-success" style="cursor:pointer" title="Activo">check_circle</i></td>
+                    @else
+                      <td><i class="material-icons text-danger" style="cursor:pointer" title="Inactivo">highlight_off</i></td>
+                    @endif
                     <td>
-                        <a class="btn btn-primary" href="{{ route('proveedor.edit',$value->IdProveedor) }}">Editar</a>  
+                        <a class="btn btn-primary" href="{{ route('proveedor.edit',$value->IdProveedor) }}">Editar</a> 
+                        <a class="btn btn-danger" href="{{ route('proveedor.edit',$value->IdProveedor) }}">Eliminar</a>   
+ 
                     </td>
                 </tr>
                 @endforeach

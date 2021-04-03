@@ -28,6 +28,11 @@
                     <input type="text" name="Contacto" class="form-control" placeholder="Nombre persona de contacto" required>
                     <strong>Telefono:</strong>
                     <input type="text" name="TelefonoContacto" class="form-control" placeholder="59876489" required>
+                    <strong>Estado:</strong>
+                    <select class="form-control" style="height:50px" name="Estado" >
+                      <option value="1">Activo</option>
+                      <option value="0">Inactivo</option>
+                    </select>
                   </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">

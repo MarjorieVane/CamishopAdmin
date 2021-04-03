@@ -24,6 +24,11 @@
                   <div class="form-group">
                     <strong>Nombre:</strong>
                     <input type="text" name="Nombre" class="form-control" placeholder="Nombre" required>
+                    <strong>Estado:</strong>
+                    <select class="form-control" style="height:50px" name="Estado" >
+                      <option value="1">Activo</option>
+                      <option value="0">Inactivo</option>
+                    </select>
                   </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">

@@ -22,14 +22,23 @@
                 <tr>
                   <th>No</th>
                   <th>Nombre</th>
-                  
+                  <th>Estado</th>
+                  <th>Acciones</th>
                 </tr>
                 @foreach ($marca as $key => $value)
                 <tr>
                     
                     <td>{{ $value->IdMarcas }}</td>
                     <td>{{ $value->Nombre }}</td>
-                    
+                    @if ($value->Estado == 1)
+                      <td><i class="material-icons text-success" style="cursor:pointer" title="Activo">check_circle</i></td>
+                    @else
+                      <td><i class="material-icons text-danger" style="cursor:pointer" title="Inactivo">highlight_off</i></td>
+                    @endif
+                    <td>
+                        <a class="btn btn-primary" href="{{ route('marca.edit',$value->IdMarcas) }}">Editar</a> 
+                        <a class="btn btn-danger" href="{{ route('marca.edit',$value->IdMarcas) }}">Eliminar</a>   
+                    </td>
                 </tr>
                 @endforeach
               </table>
