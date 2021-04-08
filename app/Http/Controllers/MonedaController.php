@@ -91,6 +91,7 @@ class MonedaController extends Controller
         $moneda->update($request->all());
     
         return redirect()->route('moneda.index')->with('success','Moneda actualizada !');
+        
     }
 
     /**
