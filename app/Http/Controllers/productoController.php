@@ -6,6 +6,7 @@ use App\Models\producto;
 use App\Models\categoria;
 use App\Models\marca;
 use App\Models\proveedor;
+use App\Models\Moneda;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use DB;
@@ -20,12 +21,8 @@ class productoController extends Controller
      */
     public function index()
     {
-        $data = producto::latest()->paginate(10);
         $data1 = DB::select('CALL spr_sel_index_productos(1)');
-        return view('producto.index', compact('data'))
-                                    ->with('i', (request()->input('page', 1) - 1) * 10)
-                                    ->with('contador', 0)
-                                    ->with('miprod', $data1);
+        return view('producto.index')->with('contador', 0)->with('miprod', $data1);
     }
 
     /**
@@ -35,12 +32,11 @@ class productoController extends Controller
      */
     public function create()
     {
-        $data1['games'] = ['AC', 'Zelda', 'Apex'];
-        $data1['consolas'] = ['suish', 'xbox', 'ps4'];
         $categorias = categoria::where('Estado', '=', 1)->get();
         $marcas = marca::where('Estado', '=', 1)->get();
         $proveedores = proveedor::where('Estado', '=', 1)->get();
-        return view('producto.create', $data1, compact('categorias', 'marcas', 'proveedores'));
+        $monedas = Moneda::where('Estado', '=', 1)->get();
+        return view('producto.create', compact('categorias', 'marcas', 'proveedores', 'monedas'));
     }
 
     /**
@@ -60,7 +56,8 @@ class productoController extends Controller
             'IdCategoria' => 'required',
             'IdMarcas' => 'required',
             'IdEmpleado' => 'required',
-            'IdProveedor' => 'required'
+            'IdProveedor' => 'required',
+            'IdMoneda' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -90,12 +87,11 @@ class productoController extends Controller
      */
     public function edit(producto $producto)
     {
-        $data1['games'] = ['AC', 'Zelda', 'Apex'];
-        $data1['consolas'] = ['suish', 'xbox', 'ps4'];
         $categorias = categoria::where('Estado', '=', 1)->get();
         $marcas = marca::where('Estado', '=', 1)->get();
         $proveedores = proveedor::where('Estado', '=', 1)->get();
-        return view('producto.edit', $data1, compact('producto', 'categorias', 'marcas', 'proveedores'));
+        $monedas = Moneda::where('Estado', '=', 1)->get();
+        return view('producto.edit', compact('producto', 'categorias', 'marcas', 'proveedores', 'monedas'));
     }
 
     /**
@@ -116,7 +112,8 @@ class productoController extends Controller
             'IdCategoria' => 'required',
             'IdMarcas' => 'required',
             'IdEmpleado' => 'required',
-            'IdProveedor' => 'required'
+            'IdProveedor' => 'required',
+            'IdMoneda' => 'required'
         ]);
 
         if ($validator->fails()) {

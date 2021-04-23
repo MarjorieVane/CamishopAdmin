@@ -105,6 +105,20 @@
                 </div>
                 <div class="col-xs-2 col-sm-2 col-md-2">
                   <div class="form-group">
+                    <strong>Moneda:</strong>
+                    <select class="form-select form-select-sm" style="width: 130px" name="IdMoneda" required>
+                      @foreach ($monedas as $key => $value)
+                        @if ($producto->IdMoneda == $value->IdMoneda)
+                          <option value="{{ $value->IdMoneda }}" selected>{{ $value->Descripcion }}</option>
+                        @else
+                          <option value="{{ $value->IdMoneda }}">{{ $value->Descripcion }}</option>
+                        @endif
+                      @endforeach
+                    </select>
+                  </div>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2">
+                  <div class="form-group">
                     <strong>Estado:</strong>
                     <select class="form-select form-select-sm" style="width: 130px" name="Estado" required>
                       @if ($producto->Estado == 1)
@@ -130,34 +144,6 @@
                 </div>
               </div>
             </form>
-            <!-- datos de un array -->
-            <!-- <table>
-              <tr>
-                <th>juegos</th>
-                <th>consola</th>
-              </tr>
-              <?php for($i = 0; $i < count($games); $i++) : ?>
-                <tr>
-                    <td><?= $games[$i]?></td>
-                    <td><?= $consolas[$i]?></td>
-                </tr>
-              <?php endfor ?>
-            </table> -->
-            <!-- datos de una tabla -->
-            <!-- <table>
-              <tr>
-                <th>no</th>
-                <th>id</th>
-                <th>categoria</th>
-              </tr>
-              @foreach ($categorias as $key => $value)
-                <tr>
-                  <td></td>
-                  <td>{{ $value->IdCategoria }}</td>
-                  <td>{{ $value->Nombre }}</td>
-                </tr>
-              @endforeach
-            </table> -->
           </div>
         </div>
       </div>
