@@ -11,19 +11,14 @@ Use Alert;
 
 class imagenController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index($id)
     {
         // imagenes del producto
-        $imagenes = imagen::where('IdProducto', '=', $id)->paginate(5);
+        $imagenes = imagen::where('IdProducto', '=', $id)->paginate(10);
         // datos del producto
         $producto = producto::find($id);
         return view('producto.imagen.index', compact('imagenes'))
-                                                ->with('i', (request()->input('page', 1) - 1) * 5)
+                                                ->with('i', (request()->input('page', 1) - 1) * 10)
                                                 ->with('idProd', $id)
                                                 ->with('nombreProd', $producto->Nombre);
     }
