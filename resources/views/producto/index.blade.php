@@ -43,8 +43,12 @@
                   <td>{{ $prod->NombreMar }}</td>
                   <td>{{ $prod->NombrePrv }}</td>
                   <td>
-                    <a title="Imagenes" style="cursor:pointer">
+                    <a
+                      href="{{ url('producto/'.$prod->IdProducto.'/imagen') }}"
+                      title="Imagenes"  
+                      class="btn btn-link btn-primary">
                       <i class="material-icons">photo_library</i>
+                      <span style="font-size: 12px;" class="badge badge-success">{{ $prod->contImg }}</span>
                     </a>
                   </td>
                   <td>

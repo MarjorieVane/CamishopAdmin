@@ -16,13 +16,14 @@ class imagenController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
         $data = imagen::latest()->paginate(10);
-        $data1 = DB::select('CALL spr_sel_index_imagenes(1)');
-        return view('imagen.index',compact('data'))
+        $data1 = DB::select('CALL spr_sel_index_imagenes(?)', array($id));
+        return view('producto.imagen.index',compact('data'))
                                                 ->with('i', (request()->input('page', 1) - 1) * 5)
                                                 ->with('contador', 0)
+                                                ->with('idProd', $id)
                                                 ->with('miimg', $data1);;
     }
 
@@ -31,10 +32,9 @@ class imagenController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        $producto = producto::where('Estado', '=', 1)->get();
-        return view('imagen.create', compact('producto'));
+        return view('producto.imagen.create')->with('idProd', $id);
     }
 
     /**
@@ -46,7 +46,6 @@ class imagenController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'IdProducto' => 'required',
             'RutaImagen' => 'required|max:1000',
             'Estado' => 'required'
         ]);
@@ -56,18 +55,7 @@ class imagenController extends Controller
         }
 
         imagen::create($request->all());
-        return redirect()->route('imagen.index')->with('toast_success','Imagen Creada');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\imagen  $imagen
-     * @return \Illuminate\Http\Response
-     */
-    public function show(imagen $imagen)
-    {
-        //
+        return redirect()->route('producto.imagen.index')->with('toast_success','Imagen Creada');
     }
 
     /**
@@ -76,10 +64,10 @@ class imagenController extends Controller
      * @param  \App\Models\imagen  $imagen
      * @return \Illuminate\Http\Response
      */
-    public function edit(imagen $imagen)
+    public function edit($id, $idImg)
     {
-        $producto = producto::where('Estado', '=', 1)->get();
-        return view('imagen.edit', compact('imagen', 'producto'));
+        $imagen = imagen::find($idImg);
+        return view('producto.imagen.edit', compact('imagen'))->with('idProd', $id);
     }
 
     /**
@@ -89,10 +77,9 @@ class imagenController extends Controller
      * @param  \App\Models\imagen  $imagen
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, imagen $imagen)
+    public function update(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'IdProducto' => 'required',
             'RutaImagen' => 'required',
             'Estado' => 'required'
         ]);
@@ -102,7 +89,7 @@ class imagenController extends Controller
         }
 
         $imagen->update($request->all());
-        return redirect()->route('imagen.index')->with('toast_success','Imagen Actualizada');
+        return redirect()->route('producto.imagen.index')->with('toast_success','Imagen Actualizada');
     }
 
     /**
