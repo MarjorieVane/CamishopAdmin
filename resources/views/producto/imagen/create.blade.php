@@ -11,7 +11,7 @@
               <div class="nav-tabs-wrapper">
                 <h4 class="card-title nav-tabs-title">Imagenes - Gestionar</h4>
                 <div class="pull-right">
-                  <a class="btn btn-success" href="{{ url('producto/'.$idProd.'/imagen') }}">Regresar</a>
+                  <a class="btn btn-info" href="{{ url('producto/'.$idProd.'/imagen') }}">Regresar</a>
                 </div>
               </div>
             </div>

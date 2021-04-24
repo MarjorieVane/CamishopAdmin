@@ -9,14 +9,16 @@
           <div class="card-header card-header-tabs card-header-primary">
             <div class="nav-tabs-navigation">
               <div class="nav-tabs-wrapper">
-                <h4 class="card-title nav-tabs-title">Imagenes del producto seleccionado</h4>
+                <h4 class="card-title nav-tabs-title">
+                  Imagenes del producto:
+                  <span style="font-weight: bold; font-size: 20px;">{{ $nombreProd }}</span>
+                </h4>
                 <div class="pull-right">
-                  <a class="btn btn-success" href="{{ route('producto.index') }}">Regresar</a>
+                  <a class="btn btn-info" href="{{ route('producto.index') }}">Regresar</a>
                 </div>
                 <div class="pull-right">
                   <a class="btn btn-success" href="{{ url('producto/'.$idProd.'/imagen/create') }}">Nuevo</a>
                 </div>
-                
               </div>
             </div>
           </div>
@@ -26,17 +28,15 @@
               <table class="table">
                 <tr>
                   <th>No</th>
-                  <th>Producto</th>
                   <th>Vista Previa</th>
                   <th>URL</th>
                   <th>Estado</th>
                   <th>Acciones</th>
                 </tr>
                 <tbody>
-                @foreach ($miimg as $img)
+                @foreach ($imagenes as $key => $img)
                 <tr>
-                  <td>{{ ++$contador }}</td>
-                  <td>{{ $img->NombreProd }}</td>
+                  <td>{{ ++$i }}</td>
                   <td>
                     <img
                       id="{{ $img->IdImagenes_prod }}"
@@ -47,7 +47,7 @@
                       onclick="hacerZoom(this)">
                   </td>
                   <td>
-                    <span title="{{ $img->RutaImagen }}">{{ \Str::limit($img->RutaImagen, 30) }}</span>
+                    <span title="{{ $img->RutaImagen }}">{{ \Str::limit($img->RutaImagen, 50) }}</span>
                   </td>
                   <td>
                     @if ($img->Estado == 1)
@@ -58,7 +58,7 @@
                   </td>
                   <td>
                     <form action="" method="POST">   
-                      <a class="btn btn-primary" href="{{ url('producto/'.$idProd.'/imagen/edit/'.$img->IdImagenes_prod) }}">Editar</a>   
+                      <a class="btn btn-primary" href="{{ url('producto/'.$idProd.'/imagen/'.$img->IdImagenes_prod.'/edit') }}">Editar</a>   
                       @csrf
                       @method('DELETE')      
                       <button type="submit" class="btn btn-danger">Borrar</button>
@@ -68,6 +68,9 @@
                 @endforeach
                 </tbody>
               </table>
+              <div id="seccionPaginacion">
+                {{ $imagenes->render("pagination::bootstrap-4") }}
+              </div>
             </div>
           </div>    
         </div>

@@ -11,15 +11,14 @@
               <div class="nav-tabs-wrapper">
                 <h4 class="card-title nav-tabs-title">Imagenes - Gestionar</h4>
                 <div class="pull-right">
-                  <a class="btn btn-success" href="{{ url('producto/'.$idProd.'/imagen') }}">Regresar</a>
+                  <a class="btn btn-info" href="{{ url('producto/'.$idProd.'/imagen') }}">Regresar</a>
                 </div>
               </div>
             </div>
           </div>
           <div class="card-body">
-            <form action="{{ url('producto/'.$idProd.'/imagen/edit') }}" method="POST">
-              @csrf
-              @method('PUT')
+            <form action="{{ url('producto/'.$idProd.'/imagen/'.$idImg.'/edit') }}" method="POST">
+              {{ csrf_field() }}
               <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                   <div class="form-group">
@@ -42,7 +41,7 @@
                   </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                  <button type="submit" class="btn btn-primary">Guardar</button>
+                  <button class="btn btn-primary">Guardar</button>
                 </div>
               </div>
             </form>
