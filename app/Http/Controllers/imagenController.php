@@ -19,7 +19,7 @@ class imagenController extends Controller
     public function index($id)
     {
         // imagenes del producto
-        $imagenes = imagen::where('IdProducto', '=', $id)->paginate(10);
+        $imagenes = imagen::where('IdProducto', '=', $id)->paginate(5);
         // datos del producto
         $producto = producto::find($id);
         return view('producto.imagen.index', compact('imagenes'))
@@ -33,8 +33,10 @@ class imagenController extends Controller
         return view('producto.imagen.create')->with('idProd', $id);
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
+        // la funcion dd lista en pantalla el contenido de request
+        // dd($request->all());
         $validator = Validator::make($request->all(), [
             'RutaImagen' => 'required|max:1000',
             'Estado' => 'required'
@@ -44,8 +46,12 @@ class imagenController extends Controller
             return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
         }
 
-        imagen::create($request->all());
-        return redirect()->route('producto.imagen.index')->with('toast_success','Imagen Creada');
+        $imagen = new imagen();
+        $imagen->IdProducto = $id;
+        $imagen->RutaImagen = $request->input('RutaImagen');
+        $imagen->Estado = $request->input('Estado');
+        $imagen->save();
+        return redirect('producto/'.$id.'/imagen')->with('toast_success','Imagen Creada');
     }
 
     public function edit($id, $idImg)

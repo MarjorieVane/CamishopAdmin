@@ -33,9 +33,9 @@
                   <th>Acciones</th>
                 </tr>
                 <tbody>
-                @foreach ($miprod as $prod)
+                @foreach ($productos as $prod)
                 <tr>
-                  <td>{{ ++$contador }}</td>
+                  <td>{{ ++$i }}</td>
                   <td>{{ $prod->Nombre }}</td>
                   <td>{{ $prod->Descripcion }}</td>
                   <td>{{ $prod->precio_format }}</td>
@@ -61,15 +61,15 @@
                   <td>
                     <form action="{{ route('producto.destroy',$prod->IdProducto) }}" method="POST">   
                       <a class="btn btn-primary" href="{{ route('producto.edit',$prod->IdProducto) }}">Editar</a>   
-                      @csrf
-                      @method('DELETE')      
-                      <!-- <button type="submit" class="btn btn-danger">Borrar</button> -->
                     </form>
                   </td>
                 </tr>
                 @endforeach
                 </tbody>
               </table>
+              <div id="seccionPaginacion">
+                {{ $productos->render("pagination::bootstrap-4") }}
+              </div>
             </div>
           </div>    
         </div>

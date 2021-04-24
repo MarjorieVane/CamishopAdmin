@@ -17,8 +17,8 @@
             </div>
           </div>
           <div class="card-body">
-            <form action="" method="POST">
-              @csrf
+            <form action="{{ url('/producto/'.$idProd.'/imagen/store') }}" method="POST">
+              {{ csrf_field() }}
               <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                   <div class="form-group">
@@ -36,7 +36,7 @@
                   </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                  <button type="submit" class="btn btn-primary">Guardar</button>
+                  <button class="btn btn-primary">Guardar</button>
                 </div>
               </div>
             </form>

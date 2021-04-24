@@ -84,5 +84,6 @@ Route::resource('proveedor',ProveedorController::class)->middleware('auth');
 
 Route::get('/producto/{id}/imagen', 'App\Http\Controllers\imagenController@index');
 Route::get('/producto/{id}/imagen/create', 'App\Http\Controllers\imagenController@create');
+Route::post('/producto/{id}/imagen/store', 'App\Http\Controllers\imagenController@store');
 Route::get('/producto/{id}/imagen/{idImg}/edit', 'App\Http\Controllers\imagenController@edit');
 Route::post('/producto/{id}/imagen/{idImg}/edit', 'App\Http\Controllers\imagenController@update');
