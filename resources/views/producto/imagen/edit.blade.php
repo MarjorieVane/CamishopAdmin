@@ -11,42 +11,37 @@
               <div class="nav-tabs-wrapper">
                 <h4 class="card-title nav-tabs-title">Imagenes - Gestionar</h4>
                 <div class="pull-right">
-                  <a class="btn btn-success" href="{{ route('imagen.index') }}">Regresar</a>
+                  <a class="btn btn-info" href="{{ url('producto/'.$idProd.'/imagen') }}">Regresar</a>
                 </div>
               </div>
             </div>
           </div>
           <div class="card-body">
-            <form action="{{ route('imagen.store') }}" method="POST">
-              @csrf
+            <form action="{{ url('producto/'.$idProd.'/imagen/'.$idImg.'/edit') }}" method="POST">
+              {{ csrf_field() }}
               <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                   <div class="form-group">
                     <strong>URL:</strong>
-                    <input type="text" name="RutaImagen" class="form-control" placeholder="Ruta Imagen" required>
-                  </div>
-                </div>
-                <div class="col-xs-2 col-sm-2 col-md-2">
-                  <div class="form-group">
-                    <strong>Producto:</strong>
-                    <select class="form-select form-select-sm" style="width: 130px" name="IdProducto" required>
-                      @foreach ($producto as $key => $value)
-                        <option value="{{ $value->IdProducto }}">{{ $value->Nombre }}</option>
-                      @endforeach
-                    </select>
+                    <input type="text" name="RutaImagen" value="{{ $imagen->RutaImagen }}" class="form-control" placeholder="Ruta Imagen" required>
                   </div>
                 </div>
                 <div class="col-xs-2 col-sm-2 col-md-2">
                   <div class="form-group">
                     <strong>Estado:</strong>
                     <select class="form-select form-select-sm" style="width: 130px" name="Estado" required>
-                      <option value="1" selected>Activo</option>
-                      <option value="0">Inactivo</option>
+                      @if ($imagen->Estado == 1)
+                        <option value="1" selected>Activo</option>
+                        <option value="0">Inactivo</option>
+                      @else
+                        <option value="1">Activo</option>
+                        <option value="0" selected>Inactivo</option>
+                      @endif
                     </select>
                   </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                  <button type="submit" class="btn btn-primary">Guardar</button>
+                  <button class="btn btn-primary">Guardar</button>
                 </div>
               </div>
             </form>

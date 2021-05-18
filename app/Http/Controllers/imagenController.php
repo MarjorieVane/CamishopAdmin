@@ -11,42 +11,28 @@ Use Alert;
 
 class imagenController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function index($id)
     {
-        $data = imagen::latest()->paginate(10);
-        $data1 = DB::select('CALL spr_sel_index_imagenes(1)');
-        return view('imagen.index',compact('data'))
-                                                ->with('i', (request()->input('page', 1) - 1) * 5)
-                                                ->with('contador', 0)
-                                                ->with('miimg', $data1);;
+        // imagenes del producto
+        $imagenes = imagen::where('IdProducto', '=', $id)->paginate(10);
+        // datos del producto
+        $producto = producto::find($id);
+        return view('producto.imagen.index', compact('imagenes'))
+                                                ->with('i', (request()->input('page', 1) - 1) * 10)
+                                                ->with('idProd', $id)
+                                                ->with('nombreProd', $producto->Nombre);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create($id)
     {
-        $producto = producto::where('Estado', '=', 1)->get();
-        return view('imagen.create', compact('producto'));
+        return view('producto.imagen.create')->with('idProd', $id);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
+        // la funcion dd lista en pantalla el contenido de request
+        // dd($request->all());
         $validator = Validator::make($request->all(), [
-            'IdProducto' => 'required',
             'RutaImagen' => 'required|max:1000',
             'Estado' => 'required'
         ]);
@@ -55,62 +41,37 @@ class imagenController extends Controller
             return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
         }
 
-        imagen::create($request->all());
-        return redirect()->route('imagen.index')->with('toast_success','Imagen Creada');
+        $imagen = new imagen();
+        $imagen->IdProducto = $id;
+        $imagen->RutaImagen = $request->input('RutaImagen');
+        $imagen->Estado = $request->input('Estado');
+        $imagen->save();
+        return redirect('producto/'.$id.'/imagen')->with('toast_success','Imagen Creada');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\imagen  $imagen
-     * @return \Illuminate\Http\Response
-     */
-    public function show(imagen $imagen)
+    public function edit($id, $idImg)
     {
-        //
+        $imagen = imagen::find($idImg);
+        return view('producto.imagen.edit', compact('imagen'))->with('idProd', $id)->with('idImg', $idImg);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\imagen  $imagen
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(imagen $imagen)
-    {
-        $producto = producto::where('Estado', '=', 1)->get();
-        return view('imagen.edit', compact('imagen', 'producto'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\imagen  $imagen
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, imagen $imagen)
+    public function update(Request $request, $id, $idImg)
     {
         $validator = Validator::make($request->all(), [
-            'IdProducto' => 'required',
-            'RutaImagen' => 'required',
+            'RutaImagen' => 'required|max:1000',
             'Estado' => 'required'
         ]);
 
         if ($validator->fails()) {
             return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
         }
-
-        $imagen->update($request->all());
-        return redirect()->route('imagen.index')->with('toast_success','Imagen Actualizada');
+        $imagen = imagen::find($idImg);
+        $imagen->RutaImagen = $request->input('RutaImagen');
+        $imagen->Estado = $request->input('Estado');
+        $imagen->save();
+        return redirect('producto/'.$id.'/imagen')->with('toast_success','Imagen Actualizada');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\imagen  $imagen
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(imagen $imagen)
     {
         $imagen->delete();

@@ -19,6 +19,7 @@ class producto extends Model
         'IdCategoria', 
         'IdMarcas', 
         'IdEmpleado',
-        'IdProveedor'
+        'IdProveedor',
+        'IdMoneda'
     ];
 }
