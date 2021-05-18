@@ -26,7 +26,7 @@
                   <strong>Email:</strong>
                   <input type="text" name="email" class="form-control" placeholder="Ingrese su email">
                   <strong>Password:</strong>
-                  <input type="text" name="password" class="form-control" placeholder="Ingrese su password">
+                  <input type="password" name="password" class="form-control" placeholder="Ingrese su password">
                   <strong>Estado:</strong>
                   <select class="form-control" style="height:50px" name="Estado" >
                     <option value="1">Activo</option>

@@ -22,7 +22,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                   <div class="form-group">
                   <strong>Nombre:</strong>
-                  <input type="text" name="Nombre" class="form-control" placeholder="Ingrese un nombre">
+                  <input type="text" name="Nombre" class="form-control" placeholder="Ingrese un nombre" required>
                   <strong>Estado:</strong>
                   <select class="form-control" style="height:50px" name="Estado" >
                     <option value="1">Activo</option>

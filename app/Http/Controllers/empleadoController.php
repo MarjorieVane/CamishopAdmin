@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\empleado;
 use Illuminate\Http\Request;
 use DB;
-
+Use Alert;
 class empleadoController extends Controller
 {
     /**
@@ -63,7 +63,7 @@ class empleadoController extends Controller
         $respuesta = DB::select('CALL spr_ins_create_empleados(?,?,?,?)',array($nombre,$email,$password2,$estado));
         
      
-        return redirect()->route('empleado.index')->with('success','Empleado creado');
+        return redirect()->route('empleado.index')->with('toast_success','Categoria Creada');;
     }
 
     /**
@@ -85,8 +85,9 @@ class empleadoController extends Controller
      */
     public function edit($IdEmpleado)
     {
-       /* $empleado=empleado::findOrFail($IdEmpleado);
-        return view('empleado.edit',compact('empleado'));*/
+        $empleado = DB::select('CALL spr_sel_edit_empleados(4)');
+        //$empleado=empleado::findOrFail($IdEmpleado);
+        return view('empleado.edit',compact('empleado',$empleado));
     }
 
     /**
@@ -98,7 +99,7 @@ class empleadoController extends Controller
      */
     public function update(Request $request, empleado $empleado)
     {
-        //
+        
     }
 
     /**

@@ -10,31 +10,31 @@
               <div class="card-icon">
                 <i class="material-icons">content_copy</i>
               </div>
-              <p class="card-category">Used Space</p>
-              <h3 class="card-title">49/50
-                <small>GB</small>
+              <p class="card-category">Ordenes nuevas recibidas</p>
+              <h3 class="card-title">(5)
+                <small></small>
               </h3>
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons text-danger">warning</i>
-                <a href="#pablo">Get More Space...</a>
+                <i class="material-icons text-danger">priority_high</i>
+                <a href="#pablo">Tiene nuevas órdenes ingresadas</a>
               </div>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="card card-stats">
-            <div class="card-header card-header-success card-header-icon">
+            <div class="card-header card-header-info card-header-icon">
               <div class="card-icon">
-                <i class="material-icons">store</i>
+                <i class="material-icons">toc</i>
               </div>
-              <p class="card-category">Revenue</p>
-              <h3 class="card-title">$34,245</h3>
+              <p class="card-category">Ordenes en preparación</p>
+              <h3 class="card-title">(0)</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">date_range</i> Last 24 Hours
+                <i class="material-icons">do_not_disturb</i> No tiene órdenes en preparación
               </div>
             </div>
           </div>
@@ -43,10 +43,10 @@
           <div class="card card-stats">
             <div class="card-header card-header-danger card-header-icon">
               <div class="card-icon">
-                <i class="material-icons">info_outline</i>
+                <i class="material-icons">verified_user</i>
               </div>
-              <p class="card-category">Fixed Issues</p>
-              <h3 class="card-title">75</h3>
+              <p class="card-category">Ordenes para cierre</p>
+              <h3 class="card-title">(1)</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
@@ -57,20 +57,22 @@
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="card card-stats">
-            <div class="card-header card-header-info card-header-icon">
+            <div class="card-header card-header-success card-header-icon">
               <div class="card-icon">
-                <i class="fa fa-twitter"></i>
+                <i class="material-icons">store</i>
               </div>
-              <p class="card-category">Followers</p>
-              <h3 class="card-title">+245</h3>
+              <p class="card-category">Total ventas de hoy</p>
+              <h3 class="card-title">Q. 3,245</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">update</i> Just Updated
+                <i class="material-icons">date_range</i> Actualizado hace 5 minutos
               </div>
             </div>
           </div>
         </div>
+  
+     
       </div>
       <div class="row">
         <div class="col-md-4">
@@ -79,13 +81,13 @@
               <div class="ct-chart" id="dailySalesChart"></div>
             </div>
             <div class="card-body">
-              <h4 class="card-title">Daily Sales</h4>
+              <h4 class="card-title">Ventas del mes</h4>
               <p class="card-category">
-                <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
+                <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> Incremento en las ventas de hoy.</p>
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">access_time</i> updated 4 minutes ago
+                <i class="material-icons">access_time</i> Actualizado hace 4 minutos
               </div>
             </div>
           </div>
@@ -96,12 +98,12 @@
               <div class="ct-chart" id="websiteViewsChart"></div>
             </div>
             <div class="card-body">
-              <h4 class="card-title">Email Subscriptions</h4>
-              <p class="card-category">Last Campaign Performance</p>
+              <h4 class="card-title">Ordenes recibidas por mes</h4>
+              <p class="card-category">Últimos 6 meses</p>
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">access_time</i> campaign sent 2 days ago
+                <i class="material-icons">access_time</i> Actualizado hace 5 minutos
               </div>
             </div>
           </div>
@@ -112,12 +114,12 @@
               <div class="ct-chart" id="completedTasksChart"></div>
             </div>
             <div class="card-body">
-              <h4 class="card-title">Completed Tasks</h4>
-              <p class="card-category">Last Campaign Performance</p>
+              <h4 class="card-title">Top 5 productos</h4>
+              <p class="card-category">Los 5 productos mas vendidos</p>
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">access_time</i> campaign sent 2 days ago
+                <i class="material-icons">access_time</i> actualizado hace 5 minutos
               </div>
             </div>
           </div>

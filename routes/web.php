@@ -73,8 +73,9 @@ Route::group(['middleware' => 'auth'], function () {
 Route::resource('moneda','App\Http\Controllers\MonedaController');
 
 Route::resource('empleado', empleadoController::class)->middleware('auth');
-
-Route::resource('categoria', categoriaController::class)->middleware('auth');
+//Route::resource ('categoria', 'categoriaController', ['parameters' => ['categoria' => 'categoria']]);
+//KG: Esta línea se modificó para corregir el inconveniente ia - ium en nombre categoria
+Route::resource('categoria', categoriaController::class,['parameters' => ['categoria' => 'categoria']])->middleware('auth');
 
 Route::resource('producto', productoController::class)->middleware('auth');
 

@@ -11,6 +11,9 @@ class categoria extends Model
    
     public $table = 'categoria';
     protected $primaryKey = 'IdCategoria';
-    protected $fillable = ['Nombre','Estado'];
+    protected $fillable = [
+        'Nombre',
+        'Estado'
+    ];
     
 }

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\categoria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use DB;
+Use Alert;
 
 class categoriaController extends Controller
 {
@@ -37,23 +40,27 @@ class categoriaController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'Nombre' => 'required',
+        $validator = Validator::make($request->all(), [
+            'Nombre' => 'required|min:3',
             'Estado' => 'required',
+         
         ]);
+
+        if ($validator->fails()) {
+            return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
+        }
     
         categoria::create($request->all());
-     
-        return redirect()->route('categoria.index')->with('success','Categoría creada');
+        return redirect()->route('categoria.index')->with('toast_success','Categoria Creada');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Categoria  $categoria
+     * @param  \App\Models\categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function show(Categoria $categoria)
+    public function show(categoria $categoria)
     {
         //return view('categoria.show',compact('categoria'));
     }
@@ -77,35 +84,32 @@ class categoriaController extends Controller
      * @param  \App\Models\categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $IdCategoria)
+    public function update(Request $request,categoria $categoria )
     {
-        $request->validate([
-            
-            'Nombre' => 'required',
+        $validator = Validator::make($request->all(), [
+            'Nombre' => 'required|min:3',
             'Estado' => 'required',
-           
+            
         ]);
+
+        if ($validator->fails()) {
+            return back()->with('toast_error', $validator->messages()-> all()[0])->withInput();
+        }
     
-        $dcategoria=request()->except(['_token','_method']);
-        categoria::where('IdCategoria','=',$IdCategoria)->update($dcategoria);
-        return redirect()->route('categoria.index')
-                        ->with('success','Categoría actualizada');
+        $categoria->update($request->all());
+        return redirect()->route('categoria.index')->with('toast_success','Categoría Actualizada');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Categoria  $categoria
+     * @param  \App\Models\categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request,$IdCategoria)
+    public function destroy(categoria $categoria)
     {
-
-
-        $dcategoria=request()->except(['_token','_method']);
-        categoria::where('IdCategoria','=',$IdCategoria)->delete($dcategoria);
-        return redirect()->route('categoria.index')
-                        ->with('success','Categoría eliminada');
+        $categoria->delete();
+        return redirect()->route('categoria.index')->with('toast_success','Categoría eliminada');
 
       
     }

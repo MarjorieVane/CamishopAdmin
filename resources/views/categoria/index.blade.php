@@ -38,10 +38,10 @@
                 <td>
                 <form action="{{ route('categoria.destroy',$value->IdCategoria) }}" method="POST">   
                      
-                    <a class="btn btn-primary" href="{{ route('categoria.edit',$value->IdCategoria) }}">Edit</a>   
+                    <a class="btn btn-primary" href="{{ route('categoria.edit',$value->IdCategoria) }}">Editar</a>   
                     @csrf
                     @method('DELETE')      
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
                 </form>
                 </td>
               </tr>
