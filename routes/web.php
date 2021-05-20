@@ -6,7 +6,7 @@ use App\Http\Controllers\categoriaController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\imagenController;
-
+use App\Http\Controllers\pedidosController;
 use App\Http\Controllers\empleadoController;
 /*
 |--------------------------------------------------------------------------
@@ -82,6 +82,8 @@ Route::resource('producto', productoController::class)->middleware('auth');
 Route::resource('marca',MarcaController::class)->middleware('auth');
 
 Route::resource('proveedor',ProveedorController::class)->middleware('auth');
+
+Route::resource('pedidos',pedidosController::class)->middleware('auth');
 
 Route::get('/producto/{id}/imagen', 'App\Http\Controllers\imagenController@index');
 Route::get('/producto/{id}/imagen/create', 'App\Http\Controllers\imagenController@create');

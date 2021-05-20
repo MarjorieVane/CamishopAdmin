@@ -89,6 +89,12 @@
             <p>{{ __('Proveedores') }}</p>
         </a>
       </li>
+      <li class="nav-item{{ $activePage == 'pedidos' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('pedidos.index') }}">
+          <i class="material-icons">list_alt</i>
+            <p>{{ __('pedidos') }}</p>
+        </a>
+      </li>
       <!-- <li class="nav-item{{ $activePage == 'icons' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('icons') }}">
           <i class="material-icons">bubble_chart</i>

@@ -85,7 +85,7 @@ class empleadoController extends Controller
      */
     public function edit($IdEmpleado)
     {
-        $empleado = DB::select('CALL spr_sel_edit_empleados(4)');
+        $empleado = DB::select('CALL spr_sel_edit_empleados("'.$IdEmpleado.'")');
         //$empleado=empleado::findOrFail($IdEmpleado);
         return view('empleado.edit',compact('empleado',$empleado));
     }
