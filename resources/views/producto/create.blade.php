@@ -101,7 +101,7 @@
                   <div class="form-group">
                     <strong>Empleado:</strong>
                     <select class="form-select form-select-sm" style="width: 130px" name="IdEmpleado" required>
-                      <option value="1" selected>TEMPORAL</option>
+                      <option value="1" selected>Admin</option>
                     </select>
                   </div>
                 </div>
