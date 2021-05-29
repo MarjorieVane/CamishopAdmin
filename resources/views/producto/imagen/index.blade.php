@@ -58,10 +58,8 @@
                   </td>
                   <td>
                     <form action="" method="POST">   
-                      <a class="btn btn-primary" href="{{ url('producto/'.$idProd.'/imagen/'.$img->IdImagenes_prod.'/edit') }}">Editar</a>   
-                      @csrf
-                      @method('DELETE')      
-                      <button type="submit" class="btn btn-danger">Borrar</button>
+                      <a class="btn btn-primary" href="{{ url('producto/'.$idProd.'/imagen/'.$img->IdImagenes_prod.'/edit') }}">Editar</a>
+                      <a class="btn btn-danger" href="{{ url('producto/'.$idProd.'/imagen/'.$img->IdImagenes_prod.'/delete') }}">Borrar</a>
                     </form>
                   </td>
                 </tr>

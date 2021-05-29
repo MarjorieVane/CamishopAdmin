@@ -72,10 +72,10 @@ class imagenController extends Controller
         return redirect('producto/'.$id.'/imagen')->with('toast_success','Imagen Actualizada');
     }
 
-    public function destroy(imagen $imagen)
+    public function destroy(Request $request, $id, $idImg)
     {
+        $imagen = imagen::find($idImg);
         $imagen->delete();
-    
-        return redirect()->route('imagen.index')->with('success','Imagen borrada');
+        return redirect('producto/'.$id.'/imagen')->with('toast_success','Imagen borrada');
     }
 }

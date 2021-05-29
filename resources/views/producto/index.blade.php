@@ -59,7 +59,7 @@
                     @endif
                   </td>
                   <td>
-                    <form action="{{ route('producto.destroy',$prod->IdProducto) }}" method="POST">   
+                    <form action="" method="POST">   
                       <a class="btn btn-primary" href="{{ route('producto.edit',$prod->IdProducto) }}">Editar</a>   
                     </form>
                   </td>

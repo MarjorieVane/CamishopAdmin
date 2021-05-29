@@ -98,8 +98,6 @@ class productoController extends Controller
 
     public function destroy(producto $producto)
     {
-        $producto->delete();
-    
-        return redirect()->route('producto.index')->with('success','PRODUCTO BORRADO');
+       //
     }
 }
